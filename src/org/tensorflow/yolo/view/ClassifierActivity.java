@@ -1,5 +1,6 @@
 package org.tensorflow.yolo.view;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -8,7 +9,9 @@ import android.graphics.Typeface;
 import android.media.Image;
 import android.media.ImageReader;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.os.Build;
 import android.os.SystemClock;
+import android.os.Vibrator;
 import android.util.Log;
 import android.util.Size;
 import android.util.TypedValue;
@@ -19,9 +22,14 @@ import org.tensorflow.yolo.model.Recognition;
 import org.tensorflow.yolo.util.ImageUtils;
 import org.tensorflow.yolo.view.components.BorderedText;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Vector;
 
+import static android.media.CamcorderProfile.get;
 import static org.tensorflow.yolo.Config.INPUT_SIZE;
 import static org.tensorflow.yolo.Config.LOGGING_TAG;
 
@@ -29,7 +37,7 @@ import static org.tensorflow.yolo.Config.LOGGING_TAG;
  * Classifier activity class
  * Modified by Zoltan Szabo
  */
-public class ClassifierActivity extends TextToSpeechActivity implements OnImageAvailableListener {
+public class ClassifierActivity extends VibrationActivity implements OnImageAvailableListener {
     private boolean MAINTAIN_ASPECT = true;
     private float TEXT_SIZE_DIP = 10;
 
@@ -40,10 +48,11 @@ public class ClassifierActivity extends TextToSpeechActivity implements OnImageA
     private Bitmap croppedBitmap = null;
     private boolean computing = false;
     private Matrix frameToCropTransform;
-
+    private  Vibrator vibrator;
     private OverlayView overlayView;
     private BorderedText borderedText;
     private long lastProcessingTimeMs;
+
 
     @Override
     public void onPreviewSizeChosen(final Size size, final int rotation) {
@@ -57,6 +66,7 @@ public class ClassifierActivity extends TextToSpeechActivity implements OnImageA
         overlayView = (OverlayView) findViewById(R.id.overlay);
         previewWidth = size.getWidth();
         previewHeight = size.getHeight();
+
 
         final int screenOrientation = getWindowManager().getDefaultDisplay().getRotation();
 
@@ -103,11 +113,28 @@ public class ClassifierActivity extends TextToSpeechActivity implements OnImageA
         }
 
         runInBackground(() -> {
+            //final String lastRecognizedClass;
+          // vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             final long startTime = SystemClock.uptimeMillis();
             final List<Recognition> results = recognizer.recognizeImage(croppedBitmap);
             lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
             overlayView.setResults(results);
-            speak(results);
+          // speak(results);
+
+           // if(results.equals("chair") || results.equals("tvmonitor")){
+             //   vibrator.vibrate(7000);
+            //}
+           // if (!(results.isEmpty() || lastRecognizedClass.equals(results.get(0).getTitle()))) {
+            /*
+           lastRecognizedClass = results.get(0).getTitle();
+            if(lastRecognizedClass.equals("car") || lastRecognizedClass.equals("tvmonitor")) {
+
+                    vibrator.vibrate(1000);
+                }
+
+            */
+            vibration(results);
+
             requestRender();
             computing = false;
         });

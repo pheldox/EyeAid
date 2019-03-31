@@ -1,12 +1,15 @@
 package org.tensorflow.yolo.view;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
 import org.tensorflow.yolo.model.Recognition;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -19,7 +22,7 @@ import static org.tensorflow.yolo.Config.LOGGING_TAG;
 public abstract class TextToSpeechActivity extends CameraActivity implements TextToSpeech.OnInitListener {
     private TextToSpeech textToSpeech;
     private String lastRecognizedClass = "";
-
+    private  Vibrator vibrator;
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
@@ -37,6 +40,7 @@ public abstract class TextToSpeechActivity extends CameraActivity implements Tex
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         textToSpeech = new TextToSpeech(this, this);
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
     }
 
     protected void speak(List<Recognition> results) {
@@ -46,6 +50,16 @@ public abstract class TextToSpeechActivity extends CameraActivity implements Tex
                 textToSpeech.speak(lastRecognizedClass, TextToSpeech.QUEUE_FLUSH, null, null);
             } else {
                 textToSpeech.speak(lastRecognizedClass, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        }
+    }
+    protected void vibration(List<Recognition> results) {
+        ArrayList<String> last = new ArrayList<>();
+
+        if (!(results.isEmpty() || lastRecognizedClass.equals(results.get(0).getTitle()))) {
+            lastRecognizedClass = results.get(0).getTitle();
+            if (lastRecognizedClass.equals("car") || lastRecognizedClass.equals("chair")) {
+                vibrator.vibrate(1000);
             }
         }
     }

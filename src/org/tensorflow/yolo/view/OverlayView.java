@@ -1,10 +1,12 @@
 package org.tensorflow.yolo.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -27,6 +29,7 @@ public class OverlayView extends View {
     private List<Recognition> results;
     private List<Integer> colors;
     private float resultsViewHeight;
+    private  Vibrator vibrator;
 
     public OverlayView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
@@ -38,6 +41,7 @@ public class OverlayView extends View {
         resultsViewHeight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 112, getResources().getDisplayMetrics());
         colors = ClassAttrProvider.newInstance(context.getAssets()).getColors();
+
     }
 
     public void addCallback(final DrawCallback callback) {
@@ -63,6 +67,7 @@ public class OverlayView extends View {
     }
 
     public void setResults(final List<Recognition> results) {
+
         this.results = results;
         postInvalidate();
     }
@@ -90,5 +95,6 @@ public class OverlayView extends View {
         float bottom = Math.min(rect.getBottom() * sizeMultiplier + offsetY, this.getHeight() - padding);
 
         return new RectF(left, top, right, bottom);
+
     }
 }
