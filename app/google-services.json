@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "584407477726",
+    "firebase_url": "https://blind-android.firebaseio.com",
+    "project_id": "blind-android",
+    "storage_bucket": "blind-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584407477726:android:8b33f2128e841971",
+        "android_client_info": {
+          "package_name": "com.example.ashugupta.camerapreviewexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584407477726-2kp86i6vthqprud87975mu154td1g4tq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv8NF4DqM_PXoBlrr4yrRik0KuHw4Ky3c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584407477726:android:85fd8e396a75a660",
+        "android_client_info": {
+          "package_name": "com.example.ashugupta.smartindiahack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584407477726-q4le4ssh0a9ju01ni8e62jgvv8cf2tjh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ashugupta.smartindiahack",
+            "certificate_hash": "5674e23ee9a0035a5b815555de87821d2102ef00"
+          }
+        },
+        {
+          "client_id": "584407477726-2kp86i6vthqprud87975mu154td1g4tq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv8NF4DqM_PXoBlrr4yrRik0KuHw4Ky3c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584407477726-2kp86i6vthqprud87975mu154td1g4tq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584407477726:android:36e38c025dafc114",
+        "android_client_info": {
+          "package_name": "com.pheldox.blind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584407477726-o2k6f73fspspdnu0rphqv15fsgq4j1mv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pheldox.blind",
+            "certificate_hash": "5674e23ee9a0035a5b815555de87821d2102ef00"
+          }
+        },
+        {
+          "client_id": "584407477726-2kp86i6vthqprud87975mu154td1g4tq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv8NF4DqM_PXoBlrr4yrRik0KuHw4Ky3c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584407477726-2kp86i6vthqprud87975mu154td1g4tq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
