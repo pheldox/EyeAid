@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "98675098833",
+    "firebase_url": "https://android-yolo.firebaseio.com",
+    "project_id": "android-yolo",
+    "storage_bucket": "android-yolo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98675098833:android:38cca42e002b4efb",
+        "android_client_info": {
+          "package_name": "org.tensorflow.yolo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98675098833-78274kf12hs34ae397no19gs3pp4obke.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.tensorflow.yolo",
+            "certificate_hash": "5674e23ee9a0035a5b815555de87821d2102ef00"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE3uoO3TrIuLlKbrr0-_J8afxde76lseY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98675098833-ff9a7orl9nrjiaf029pjkustov0kma78.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -113,26 +113,13 @@ public class ClassifierActivity extends VibrationActivity implements OnImageAvai
         }
 
         runInBackground(() -> {
-            //final String lastRecognizedClass;
-          // vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
             final long startTime = SystemClock.uptimeMillis();
             final List<Recognition> results = recognizer.recognizeImage(croppedBitmap);
             lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
             overlayView.setResults(results);
           // speak(results);
 
-           // if(results.equals("chair") || results.equals("tvmonitor")){
-             //   vibrator.vibrate(7000);
-            //}
-           // if (!(results.isEmpty() || lastRecognizedClass.equals(results.get(0).getTitle()))) {
-            /*
-           lastRecognizedClass = results.get(0).getTitle();
-            if(lastRecognizedClass.equals("car") || lastRecognizedClass.equals("tvmonitor")) {
-
-                    vibrator.vibrate(1000);
-                }
-
-            */
             vibration(results);
 
             requestRender();
